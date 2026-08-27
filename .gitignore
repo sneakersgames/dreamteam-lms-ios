@@ -1,0 +1,2 @@
+# Local native-session shared secret — copy from POCApp/Secrets.xcconfig.example
+POCApp/Secrets.xcconfig

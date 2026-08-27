@@ -8,11 +8,20 @@ import SwiftUI
 class Game: GameCard {
     /// returns full screen game view controller which is displayed modally fullscreen by the host app
     static func viewController(data: [String : Any]?) -> UIViewController? {
-        return UIHostingController(rootView: GameBody(data: data))
+        /// The game itself is a web app; the navigation controller supplies the
+        /// bar the web page deliberately does not render in native mode.
+        let game = GameWebViewController(launchUrl: data?["link"] as? String)
+        return UINavigationController(rootViewController: game)
     }
 }
 
 struct GameBody: View {
+    /// Native reference implementation, reachable from the web game's debug
+    /// button so the two can be compared side by side.
+    static func hostingController(data: [String: Any]?) -> UIViewController {
+        UIHostingController(rootView: GameBody(data: data))
+    }
+
     /// initial data passed by the game
     var data: [String: Any]?
     @State var user: GHUser?

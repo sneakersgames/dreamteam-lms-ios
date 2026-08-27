@@ -1,0 +1,2 @@
+# Package.swift declares resources: [.process("Assets")], which fails the build
+# when this directory is absent.

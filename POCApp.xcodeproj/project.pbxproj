@@ -24,13 +24,17 @@
 
 /* Begin PBXFileReference section */
 		84388EA12F8D331100E83C9D /* POCfantasy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = POCfantasy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		84C01F162FC04E9700158F41 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = POCApp/Config.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
 		84388EB32F8D331200E83C9D /* Exceptions for "POCApp" folder in "POCfantasy" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Config.xcconfig,
 				Info.plist,
+				Secrets.xcconfig,
+				Secrets.xcconfig.example,
 			);
 			target = 84388EA02F8D331100E83C9D /* POCfantasy */;
 		};
@@ -74,6 +78,7 @@
 		84388E982F8D331100E83C9D = {
 			isa = PBXGroup;
 			children = (
+				84C01F162FC04E9700158F41 /* Config.xcconfig */,
 				84388EA32F8D331100E83C9D /* POCApp */,
 				84388EC12F8D49B200E83C9D /* Frameworks */,
 				84388EA22F8D331100E83C9D /* Products */,
@@ -159,7 +164,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				845F992F2FC04E9700158F41 /* XCRemoteSwiftPackageReference "gaming-core-ios-dt" */,
-				8448A948302DDDDE00243B03 /* XCLocalSwiftPackageReference "../dtfantasy" */,
+				8448A948302DDDDE00243B03 /* XCLocalSwiftPackageReference "." */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 84388EA22F8D331100E83C9D /* Products */;
@@ -194,6 +199,7 @@
 /* Begin XCBuildConfiguration section */
 		84388EB52F8D331200E83C9D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 84C01F162FC04E9700158F41 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -226,6 +232,7 @@
 		};
 		84388EB62F8D331200E83C9D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 84C01F162FC04E9700158F41 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -401,9 +408,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		8448A948302DDDDE00243B03 /* XCLocalSwiftPackageReference "../dtfantasy" */ = {
+		8448A948302DDDDE00243B03 /* XCLocalSwiftPackageReference "." */ = {
 			isa = XCLocalSwiftPackageReference;
-			relativePath = ../dtfantasy;
+			relativePath = .;
 		};
 /* End XCLocalSwiftPackageReference section */
 

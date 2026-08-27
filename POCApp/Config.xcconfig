@@ -1,0 +1,4 @@
+// Shared build settings for POCfantasy. Secrets stay out of git via the
+// optional include below — copy Secrets.xcconfig.example to Secrets.xcconfig
+// and put the same value as the server's NATIVE_SESSION_SECRET.
+#include? "Secrets.xcconfig"
