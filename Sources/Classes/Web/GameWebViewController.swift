@@ -51,8 +51,24 @@ final class GameWebViewController: UIViewController {
 
     // MARK: Navigation bar
 
+    private static let barColor = UIColor(red: 235 / 255, green: 23 / 255, blue: 1 / 255, alpha: 1)
+
     private func setUpNavigationBar() {
         title = "Last Man Standing"
+
+        // Per-item appearance, so it wins over whatever the host app sets globally.
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = Self.barColor
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        navigationItem.standardAppearance = appearance
+        navigationItem.scrollEdgeAppearance = appearance
+        navigationItem.compactAppearance = appearance
+        navigationItem.compactScrollEdgeAppearance = appearance
+
+        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.barStyle = .black
 
         navigationItem.leftBarButtonItem = UIBarButtonItem(
             image: UIImage(systemName: "line.3.horizontal"),
