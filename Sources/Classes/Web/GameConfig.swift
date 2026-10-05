@@ -1,4 +1,5 @@
 import Foundation
+import GamesLib
 
 /// Static configuration for the web game and its native bridge.
 enum GameConfig {
@@ -8,11 +9,22 @@ enum GameConfig {
 
     /// HTTPS is used deliberately: the host 301-redirects plain HTTP, so going
     /// straight to HTTPS avoids needing an App Transport Security exception.
-    static let baseURL = URL(string: "https://lms.dreamteamfc.com/")!
+    /// Computed rather than stored so it tracks the host app's current
+    /// `GamingHubCards.environment`; unknown future environments use production.
+    static var baseURL: URL {
+        switch GamingHubCards.environment.environment {
+        case .qa, .integration, .preproduction:
+            return URL(string: "https://lms.uat-dreamteamfc.com/")!
+        case .production:
+            return URL(string: "https://lms.dreamteamfc.com/")!
+        @unknown default:
+            return URL(string: "https://lms.dreamteamfc.com/")!
+        }
+    }
 
     /// Appended to the User-Agent so requests arriving without `gh_native` are
     /// still identifiable as native traffic.
-    static let userAgentSuffix = "DreamTeamNative/1.0 (ios)"
+    static let userAgentSuffix = "DreamTeamNative/1.1 (ios)"
 
     /// Bridge protocol version, matching `app/lib/native/messages.ts`.
     static let protocolVersion = 1
