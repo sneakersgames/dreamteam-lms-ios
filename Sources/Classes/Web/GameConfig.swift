@@ -8,7 +8,7 @@ enum GameConfig {
 
     /// HTTPS is used deliberately: the host 301-redirects plain HTTP, so going
     /// straight to HTTPS avoids needing an App Transport Security exception.
-    static let baseURL = URL(string: "https://lms.uat-dreamteamfc.com/")!
+    static let baseURL = URL(string: "https://lms.dreamteamfc.com/")!
 
     /// Appended to the User-Agent so requests arriving without `gh_native` are
     /// still identifiable as native traffic.
